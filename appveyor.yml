@@ -15,9 +15,10 @@ environment:
     - PHP_VERSION: "7.1"
 
 matrix:
-  fast_finish: true
   allow_failures:
     - PHP_VERSION: "5.6"
+    - PHP_VERSION: "7.0"
+    - PHP_VERSION: "7.1"
 
 install:
   - choco upgrade chocolatey -y
