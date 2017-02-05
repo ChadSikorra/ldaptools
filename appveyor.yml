@@ -3,9 +3,6 @@ shallow_clone: false
 platform: 'x64'
 clone_folder: c:\projects\ldaptools
 
-cache:
-  - '%APPDATA%\Composer'
-
 environment:
   global:
     PHP: "C:/PHP"
