@@ -18,9 +18,8 @@ matrix:
     - PHP_VERSION: "7.1"
 
 install:
-  - choco upgrade chocolatey -y
   - ps: Set-Service wuauserv -StartupType "Automatic"; Start-Service wuauserv
-  - ps: appveyor-retry cinst --ignore-checksums -y php --version ([string](choco search php --exact --all-versions -r | Select-String -Pattern $Env:PHP_VERSION | % { New-Object System.Version(($_ -split '\|')[1]) } | Sort -Descending | Select-Object -First 1))
+  - ps: appveyor-retry cinst --ignore-checksums -y php --version ([string](choco search php --exact --all-versions -r | Select-String -Pattern $Env:PHP_VERSION | % { New-Object System.Version(($_ -split '\|')[1]) } | Sort | Select-Object -First 1))
   - SET PATH=C:\tools\php\;%PATH%
   - cd c:\tools\php
   - copy php.ini-development php.ini
