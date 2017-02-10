@@ -16,6 +16,7 @@ matrix:
 install:
   - ps: Invoke-WebRequest "https://raw.githubusercontent.com/ChadSikorra/ps-install-php/master/Install-PHP.ps1" -OutFile "Install-PHP.ps1"
   - ps: .\Install-PHP.ps1 -Version $Env:PHP_VERSION -Highest -Arch x64 -Extensions ldap,mbstring,intl,openssl
+  - refreshenv
   - cd C:\projects\ldaptools
   - php -r "readfile('https://getcomposer.org/installer');" | php
 
